@@ -1,1 +1,14 @@
-Category
+<ng-container *ngIf="category$ | async as category">
+    <div class="[ category-list __header ]">
+        <h2>
+            Products in category: {{ category.name }}
+        </h2>
+    </div>
+
+    <div class="[ category-list  __wrapper ]">
+        <category-item 
+            *ngFor="let product of category.products.concat(category.products).concat(category.products).concat(category.products).concat(category.products)"
+            [product]="product"
+        />
+    </div>
+</ng-container>

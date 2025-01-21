@@ -1,7 +1,7 @@
-import { Products } from "./product.type";
+import { Product } from "./product.type";
 
 export type Category = {
     slug: string;
     name: string;
-    products: Products[];
+    products: Product[];
 }

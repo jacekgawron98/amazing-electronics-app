@@ -1,1 +1,12 @@
-/* You can add global styles to this file, and also import other style files */
+@use 'colors';
+
+body {
+    font-family: 'Trebuchet MS', sans-serif;
+    background-color: colors.$background;
+    color: colors.$text-primary;
+}
+
+a {
+    color: colors.$text-primary;
+    text-decoration: none;
+}
