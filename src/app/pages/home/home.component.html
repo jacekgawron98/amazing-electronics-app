@@ -1,1 +1,15 @@
-Homepage
+<h2>
+    Welcome to <span class="[ home __accent ]">Amazing</span> Electronics! Check our categories:
+</h2>
+
+@if (categories$ | async; as categories) {
+    <div class="[ home __wrapper ]">
+        @for (category of categories; track category.slug) {
+            <home-item [category]="category" />
+        }
+    </div>
+} @else {
+    <div class="[ home __loading ]">
+        <mat-spinner />
+    </div>
+}

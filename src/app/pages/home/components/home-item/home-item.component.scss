@@ -1,0 +1,31 @@
+@use 'colors';
+
+.category-item {
+    &.__wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 1rem;
+        border: 1px solid colors.$background-light;
+
+        &:hover {
+            background-color: colors.$primary;
+            color: colors.$text-dark;
+        }
+    }
+
+    &.__icon {
+        padding: 0.4rem;
+
+        mat-icon {
+            font-size: 5rem;
+            width: unset;
+            height: unset;
+        }
+    }
+
+    &.__name {
+        font-size: 1.5rem;
+        font-weight: 600;
+    }
+}

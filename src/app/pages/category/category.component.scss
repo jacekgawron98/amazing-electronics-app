@@ -1,17 +1,6 @@
 @use 'colors';
 
 .category-list {
-    &.__header {
-        h2 {
-            font-size: 2rem;
-            font-weight: 700;
-
-            @media screen and (max-width: 1024px) {
-                font-size: 1.5rem;
-            }
-        }
-    }
-
     &.__wrapper {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
@@ -24,5 +13,33 @@
         @media screen and (max-width: 768px) {
             grid-template-columns: 1fr;
         }
+    }
+
+    &.__empty {
+        grid-column: 1 / span 3; 
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 500px;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &.__empty-shrug {
+        font-size: 8rem;
+        font-weight: 700;
+        color: colors.$primary;
+    }
+
+    &.__empty-text {
+        font-size: 3rem;
+    }
+
+    &.__loading {
+        width: 100%;
+        height: 300px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 }

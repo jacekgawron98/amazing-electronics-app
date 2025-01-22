@@ -5,10 +5,11 @@ import { Observable } from "rxjs";
 import { Category } from "../../shared/types";
 import { CommonModule } from "@angular/common";
 import { CategoryItemComponent } from "./components/category-item/category-item.component";
+import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
 
 @Component({
   selector: 'category-page',
-  imports: [CommonModule, CategoryItemComponent],
+  imports: [CommonModule, CategoryItemComponent, MatProgressSpinnerModule],
   templateUrl: './category.component.html',
   styleUrl: './category.component.scss'
 })

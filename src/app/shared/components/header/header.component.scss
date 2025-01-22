@@ -1,0 +1,13 @@
+@use 'colors';
+
+.header {
+    &.__wrapper {
+        width: 100%;
+        height: 70px;
+        position: fixed;
+        background-color: colors.$background-gray;
+        display: flex;
+        align-items: center;
+        padding: 0 1.2rem;
+    }
+}

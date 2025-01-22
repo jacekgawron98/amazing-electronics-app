@@ -1,14 +1,26 @@
-<ng-container *ngIf="category$ | async as category">
-    <div class="[ category-list __header ]">
-        <h2>
-            Products in category: {{ category.name }}
-        </h2>
-    </div>
+@if (category$ | async; as category) {
+    <h2>
+        Products in category: {{ category.name }}
+    </h2>
 
     <div class="[ category-list  __wrapper ]">
-        <category-item 
-            *ngFor="let product of category.products.concat(category.products)"
-            [product]="product"
-        />
+        @for (product of category.products; track product.slug) {            
+            <category-item 
+                [product]="product"
+            />
+        } @empty {
+            <div class="[ category-list  __empty ]">
+                <div class="[ category-list  __empty-shrug ]">
+                    ¯\_(ツ)_/¯
+                </div>
+                <div class="[ category-list  __empty-text ]">
+                    We have no items in this category. Sorry!
+                </div>
+            </div>
+        }
     </div>
-</ng-container>
+} @else {
+    <div class="[ category-list __loading ]">
+        <mat-spinner />
+    </div>
+}
