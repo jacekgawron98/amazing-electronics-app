@@ -1,4 +1,4 @@
-<a [routerLink]="['/product', product.slug]">
+<a [routerLink]="['/category', category, product.slug]">
     <div class="[ category-item  __wrapper ]">
         <div class="[ category-item __image-container ]">
             <img class="[ category-item __image ]" [ngSrc]="product.image" fill priority />
@@ -10,7 +10,7 @@
             {{ product.description }}
         </div>
         <div class="[ category-item __price ]">
-            {{ product.price / 100 | currency: 'EUR' }}
+            {{ product.price | price | currency: "EUR" }}
         </div>
     </div>
 </a>

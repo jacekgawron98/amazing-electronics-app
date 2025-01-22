@@ -1,0 +1,10 @@
+@if (countdownTime$ | async; as countdownTime) {
+    <div class="[ countdown __wrapper ]">
+        <div>
+            Order in <span class="[ countdown __accent ]">{{ countdownTime }}</span>
+        </div>
+        <div>
+            to get this product delivered <span class="[ countdown __accent ]">tomorrow</span>
+        </div>
+    </div>
+}

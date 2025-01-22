@@ -1,0 +1,11 @@
+.recommended {
+    &.__wrapper {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 1rem;
+
+        @media screen and (max-width: 678px) {
+            grid-template-columns: 1fr;
+        }
+    }
+}

@@ -1,10 +1,10 @@
-<a [routerLink]="['/category', category.slug]">
-    <div class="[ category-item __wrapper ]">
+<div>
+    <a [routerLink]="['/category', category.slug]" class="[ category-item __wrapper ]">
         <div class="[ category-item __icon ]">
             <mat-icon [fontIcon]="category.iconKey" class="material-icons-outlined" />
         </div>
         <div class="[ category-item __name ]">
-            {{ category.name }} ({{ category.products.length }})
+            {{ category.name }} ({{ category.products.length  }})
         </div>
-    </div>
-</a>
+    </a>
+</div>

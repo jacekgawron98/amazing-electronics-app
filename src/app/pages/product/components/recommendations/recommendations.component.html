@@ -1,0 +1,9 @@
+<h3>
+    Recommended in this category
+</h3>
+
+<div class="[ recommended __wrapper ]">
+    @for (product of products; track product.slug) {
+        <category-item [product]="product" />
+    }
+</div>

@@ -1,12 +1,13 @@
 
 @use 'colors';
 @use '@angular/material' as mat;
+@use 'theme-colors' as theme;
 
 html {
   @include mat.theme((
     color: (
       theme-type: light,
-      primary: mat.$yellow-palette,
+      primary: theme.$primary-palette,
       tertiary: mat.$blue-palette,
     ),
     typography: Roboto,

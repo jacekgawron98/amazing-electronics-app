@@ -1,0 +1,26 @@
+@use 'colors';
+
+.countdown {
+    &.__wrapper {
+        font-size: 1.3em;
+        display: flex;
+        flex-direction: column;
+        align-items: end;
+        margin: 1.5rem 0;
+
+        @media screen and (max-width: 678px) {
+            font-size: 1rem;
+            align-items: center;
+        }
+    }
+
+    &.__accent {
+        color: colors.$primary;
+        font-weight: 600;
+        font-size: 1.32rem;
+
+        @media screen and (max-width: 678px) {
+            font-size: 1rem;
+        }
+    }
+}

@@ -1,1 +1,38 @@
-Product
+@if (product$ | async; as product) {
+    <div class="[ product __wrapper ]">
+        <div class="[ product __details-wrapper ]">
+            <div class="[ product __image-container ]">
+                <img [ngSrc]="product.image" fill />
+            </div>
+            <div class="[ product __details ]">                
+                <div class="[ product __details-header ]">
+                    <h2>
+                        {{ product.name }}
+                    </h2>
+
+                    <div class="[ product __price ]">
+                        {{ product.price | price | currency: "EUR" }}
+                    </div>
+                </div>
+
+                <div class="[ product __details-actions ]">
+                    <countdown />
+                    <button mat-flat-button class="[ product __order ]">
+                        Add to cart <mat-icon fontIcon="shopping_cart" />
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="[ product __description ]">
+            <h3>
+                About this product
+            </h3>
+            {{ product.description }}
+        </div>
+        <div class="[ product __recommendations ]">
+            <recommendations [products]="sameCategoryProducts$ | async" />
+        </div>
+    </div>
+} @else {
+    <loader />
+}
