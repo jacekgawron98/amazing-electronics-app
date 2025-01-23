@@ -1,5 +1,5 @@
-import { Component, inject } from "@angular/core";
-import { Observable, tap } from "rxjs";
+import { Component, inject, OnDestroy, OnInit } from "@angular/core";
+import { Observable, Subscription, switchMap, tap } from "rxjs";
 import { Product } from "../../shared/types";
 import { ProductService } from "../../shared/services/products/products.service";
 import { ActivatedRoute, Router } from "@angular/router";
@@ -32,9 +32,8 @@ export class ProductComponent {
   private readonly router: Router = inject(Router);
   private readonly productService: ProductService = inject(ProductService);
 
-  protected product$: Observable<Product> = this.productService.getProductBySlug(
-    this.activatedRoute.snapshot.paramMap.get('productId') || ''
-  ).pipe(
+  protected product$: Observable<Product> = this.activatedRoute.params.pipe(
+    switchMap(params => this.productService.getProductBySlug(params['productId'] || '')),
     tap(product => {
       const categorySlug = this.activatedRoute.snapshot.paramMap.get('slug');
 
@@ -42,7 +41,7 @@ export class ProductComponent {
         this.router.navigate(['error']);
       }
     })
-  )
+  )  
 
   protected sameCategoryProducts$: Observable<Product[]> = this.productService.getProductsFromCategory(
     this.activatedRoute.snapshot.paramMap.get('slug') || ''
