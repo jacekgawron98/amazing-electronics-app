@@ -3,8 +3,14 @@
         Products in category: {{ category.name }}
     </h2>
 
-    <div class="[ category-list  __wrapper ]">
-        @for (product of category.products; track product.slug) {            
+    <div
+        class="[ category-list  __wrapper ]"
+        infiniteScroll
+        [infiniteScrollDistance]="2"
+        [infiniteScrollThrottle]="50"
+        (scrolled)="onScrolled()"
+    >
+        @for (product of products$ | async; track product.slug) {            
             <category-item 
                 [product]="product"
             />

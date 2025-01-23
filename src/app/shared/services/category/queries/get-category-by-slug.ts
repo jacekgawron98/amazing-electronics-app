@@ -7,7 +7,7 @@ export const GET_CATEGORY_BY_SLUG = gql<CategoryResposne, string>`
         slug
         name
         id
-        products {
+        products(first: 9) {
             name
             slug
             image

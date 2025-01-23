@@ -7,3 +7,13 @@ export type ProductResposne = {
 export type ProductsResposne = {
     products: Product[];
 }
+
+export type TotalProductsResponse = {
+    productsConnection: {
+        aggregate: Aggregate;
+    }
+}
+
+type Aggregate = {
+    count: number;
+}
